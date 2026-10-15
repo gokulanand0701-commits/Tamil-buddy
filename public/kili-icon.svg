@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ade80" />
+      <stop offset="100%" stop-color="#16a34a" />
+    </linearGradient>
+    <linearGradient id="bellyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#facc15" />
+    </linearGradient>
+    <linearGradient id="beakGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+  </defs>
+  <!-- Tail -->
+  <path d="M 30,70 Q 15,90 10,95 Q 22,88 35,76 Z" fill="#0d9488" />
+  <path d="M 28,68 Q 18,85 20,95 Q 26,84 36,73 Z" fill="#06b6d4" />
+  <!-- Body -->
+  <circle cx="50" cy="50" r="35" fill="url(#bodyGrad)" />
+  <!-- Belly -->
+  <circle cx="56" cy="58" r="23" fill="url(#bellyGrad)" />
+  <!-- Wing -->
+  <path d="M 32,48 C 30,68 45,78 52,70 C 44,65 38,55 42,42 Z" fill="#15803d" />
+  <!-- Head Feather / Crest -->
+  <path d="M 45,18 C 45,6 60,6 55,18 Z" fill="#fbbf24" />
+  <path d="M 40,20 C 35,10 50,8 48,20 Z" fill="#f43f5e" />
+  <!-- Eye White -->
+  <circle cx="65" cy="40" r="11" fill="#ffffff" />
+  <!-- Pupil -->
+  <circle cx="67" cy="40" r="6" fill="#1e293b" />
+  <!-- Sparkle -->
+  <circle cx="69" cy="38" r="2.5" fill="#ffffff" />
+  <!-- Cheerful Blush -->
+  <ellipse cx="60" cy="52" rx="6" ry="4" fill="#fb7185" opacity="0.6" />
+  <!-- Beak -->
+  <path d="M 73,42 Q 94,48 85,58 Q 74,54 73,42 Z" fill="url(#beakGrad)" />
+</svg>

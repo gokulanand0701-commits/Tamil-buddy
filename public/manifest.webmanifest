@@ -1,0 +1,16 @@
+{
+  "name": "Tamil Buddy 🦜 தமிழ் தோழன்",
+  "short_name": "TamilBuddy",
+  "description": "Gamified Tamil learning web app for diaspora kids",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffdf0",
+  "theme_color": "#facc15",
+  "icons": [
+    {
+      "src": "/kili-icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
