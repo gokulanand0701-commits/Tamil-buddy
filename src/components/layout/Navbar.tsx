@@ -86,15 +86,16 @@ export const Navbar: React.FC = () => {
               )}
             </button>
 
-            {/* XP & Level Badge */}
+            {/* XP & Level Badge (Sized identically to Coin & Shop button) */}
             <Link
               to="/progress"
-              className="hidden sm:flex items-center gap-1.5 bg-amber-50 border-2 border-amber-200 text-amber-700 px-3 py-1 rounded-2xl text-xs sm:text-sm font-extrabold shadow-sm hover:bg-amber-100 transition-colors"
+              title={isTamil ? `புள்ளிகள்: ${xp} XP (நிலை ${level})` : `XP: ${xp} (Level ${level})`}
+              className="hidden sm:flex items-center gap-1.5 bg-gradient-to-r from-amber-50 to-yellow-50 hover:from-amber-100 hover:to-yellow-100 border-2 border-amber-300 text-amber-950 px-2.5 sm:px-3 py-1 rounded-2xl text-xs sm:text-sm font-black shadow-sm transition-all cursor-pointer active:scale-95"
             >
-              <Zap size={16} className="fill-amber-500 text-amber-500" />
-              <span>{xp} {t('xpLabel')}</span>
-              <span className="bg-amber-400 text-slate-900 px-1.5 py-0.5 rounded-lg text-[10px] font-black">
-                {t('levelLabel')} {level}
+              <Zap size={16} className="fill-amber-500 text-amber-500 shrink-0" />
+              <span>{xp} XP</span>
+              <span className="hidden sm:inline text-[10px] bg-amber-400 text-slate-900 px-1.5 py-0.5 rounded-md font-bold">
+                {isTamil ? `நிலை ${level}` : `Lv ${level}`}
               </span>
             </Link>
 

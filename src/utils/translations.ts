@@ -130,13 +130,13 @@ export const translations = {
     // Brand - Note: Logo name in top left corner stays "Tamil Buddy" as requested!
     brandName: 'Tamil Buddy',
     brandSubtitle: 'இனிமையாய் தமிழ் கற்போம்!',
-    kidBadge: 'குழந்தைகள்',
+    kidBadge: 'குழந்தை',
 
     // Navbar
     streakLabel: 'தொடர் நாள்',
     streakDays: 'நாட்கள்',
     streakFreezes: 'பாதுகாப்பு மீதம்',
-    xpLabel: 'புள்ளிகள் (XP)',
+    xpLabel: 'XP',
     levelLabel: 'நிலை',
     parentsZone: 'பெற்றோர் கூடம் (Parent Zone)',
     profile: 'சுயவிவரம்',
