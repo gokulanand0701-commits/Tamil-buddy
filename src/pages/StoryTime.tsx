@@ -88,21 +88,38 @@ export const StoryTime: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full pb-16 px-2 sm:px-4">
-      {/* Header */}
-      <div className="text-center mb-2">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-100 text-purple-800 border border-purple-200 text-xs font-black mb-2 shadow-xs">
-          <span>📖</span>
-          <span>{isTamil ? 'படங்களுடன் கூடிய தமிழ் கதைக் களம்' : 'Slide-by-Slide Illustrated Stories'}</span>
-          <span>✨</span>
+      {/* Header Banner with Signature Purple & White Theme */}
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border-2 border-purple-400/40 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Subtle decorative purple blurs */}
+        <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-10 -left-10 w-36 h-36 bg-purple-400/20 rounded-full blur-xl pointer-events-none" />
+
+        <div className="relative z-10 text-center md:text-left">
+          <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-black tracking-wide text-purple-100 mb-2 border border-white/20">
+            <Sparkles size={14} className="text-amber-300 animate-spin" />
+            <span>{isTamil ? 'படங்களுடன் கூடிய தமிழ் கதைக் களம்' : 'ILLUSTRATED STORYLAND'}</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+            {isTamil ? 'தமிழ்ச் சிறுகதைகள் (Tamil Stories)' : 'Tamil Storyland (கதைக் களம்)'} 📚
+          </h1>
+          <p className="text-xs sm:text-sm text-purple-100 font-medium mt-1 max-w-xl">
+            {isTamil
+              ? 'ஒவ்வொரு வாக்கியத்திற்கும் பொருத்தமான படங்களுடன் கதைகளைக் கண்டு கேட்டு மகிழுங்கள்!'
+              : 'Explore funny, witty, motivational and kind stories with sentence-matched animated illustrations!'}
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black text-slate-800 tracking-tight">
-          {isTamil ? 'தமிழ்ச் சிறுகதைகள் (Tamil Stories)' : 'Tamil Storyland (கதைக் களம்)'} 📚
-        </h1>
-        <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-1 max-w-xl mx-auto">
-          {isTamil
-            ? 'ஒவ்வொரு வாக்கியத்திற்கும் பொருத்தமான படங்களுடன் கதைகளைக் கண்டு கேட்டு மகிழுங்கள்!'
-            : 'Explore funny, witty, motivational and kind stories with sentence-matched animated illustrations!'}
-        </p>
+
+        <div className="relative z-10 flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/15 shrink-0 text-white">
+          <span className="text-3xl">🦚</span>
+          <div>
+            <div className="text-xs font-black uppercase text-purple-200">
+              {isTamil ? 'கதைக் களம்' : 'Illustrated Books'}
+            </div>
+            <div className="text-base sm:text-lg font-black text-white">
+              {filteredStories.length} {isTamil ? 'கதைகள்' : 'Stories Ready'}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Genre Filter Chips */}

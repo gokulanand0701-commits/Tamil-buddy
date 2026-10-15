@@ -87,14 +87,14 @@ export const HomeDashboard: React.FC = () => {
         </motion.div>
       )}
 
-      {/* Top Banner Card: Greeting + Kili + Continue CTA with Cozy Purple & White Palette */}
-      <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-800 rounded-4xl p-6 sm:p-8 lg:p-10 shadow-playful relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-purple-400/50 text-white">
+      {/* Top Banner Card: DAILY TAMIL ADVENTURE with Signature Purple & White Theme */}
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-900 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-purple-400/40 text-white">
         {/* Subtle decorative purple blurs */}
         <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
         <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-purple-400/20 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex-1 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-black text-purple-100 mb-2 shadow-xs border border-white/20">
+          <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-black tracking-wide text-purple-100 mb-3 border border-white/20">
             <Sparkles size={14} className="text-amber-300 animate-spin" />
             <span>{t('dailyAdventure')}</span>
           </div>
@@ -106,15 +106,14 @@ export const HomeDashboard: React.FC = () => {
             {t('welcomeSub')}
           </p>
 
-          <Button
-            variant="kili"
-            size="xl"
+          <button
+            type="button"
             onClick={handleStartLearning}
-            icon={<Play size={22} className="fill-white" />}
-            className="bg-white text-purple-900 hover:bg-purple-50 font-black shadow-lg border-2 border-white/80"
+            className="bg-white hover:bg-purple-50 text-purple-950 font-black px-6 py-3.5 rounded-2xl shadow-lg border-2 border-white/80 flex items-center justify-center md:justify-start gap-2.5 text-sm sm:text-base transition-all active:scale-95 cursor-pointer"
           >
-            {t('continueLearning')} ({t('unit')} {currentLesson.unit})
-          </Button>
+            <Play size={20} className="fill-purple-900 text-purple-900" />
+            <span>{t('continueLearning')} ({t('unit')} {currentLesson.unit})</span>
+          </button>
         </div>
 
         {/* Mascot Illustration */}

@@ -106,44 +106,48 @@ export const ProgressReport: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full pb-16">
-      {/* Page Title */}
-      <div className="text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4 bg-white p-6 rounded-3xl border-2 border-slate-200 shadow-sm">
-        <div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+      {/* Page Title with Signature Purple & White Theme */}
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border-2 border-purple-400/40 relative overflow-hidden flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-black tracking-wide text-purple-100 mb-2 border border-white/20">
+            <Sparkles size={14} className="text-amber-300 animate-spin" />
+            <span>LEARNING ANALYTICS</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
             Progress & Mastery Report 📊
           </h1>
-          <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
+          <p className="text-xs sm:text-sm text-purple-100 font-semibold mt-1">
             Tracking your Tamil growth across listening, speaking, reading, and writing!
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 shrink-0">
+        <div className="relative z-10 flex flex-wrap items-center gap-3 shrink-0">
           <button
             type="button"
             onClick={handleDownloadReport}
             disabled={isGeneratingPdf}
-            className="flex items-center gap-2 bg-gradient-to-r from-purple-700 to-indigo-700 hover:from-purple-800 hover:to-indigo-800 text-white px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black shadow-md transition-all cursor-pointer disabled:opacity-50 active:scale-95"
+            className="flex items-center gap-2 bg-white text-purple-950 hover:bg-purple-50 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black shadow-md transition-all cursor-pointer disabled:opacity-50 active:scale-95"
           >
             {isGeneratingPdf ? (
               <>
-                <Loader2 size={16} className="animate-spin text-white" />
+                <Loader2 size={16} className="animate-spin text-purple-600" />
                 <span>Generating PDF...</span>
               </>
             ) : (
               <>
-                <Download size={16} />
+                <Download size={16} className="text-purple-600" />
                 <span>Download Report (PDF) 📄</span>
               </>
             )}
           </button>
 
-          <div className="flex items-center gap-3 bg-amber-50 border-2 border-amber-300 px-4 py-2 rounded-2xl">
-            <Award size={28} className="text-amber-500" />
+          <div className="flex items-center gap-3 bg-white/95 text-slate-800 border-2 border-purple-200 px-4 py-2 rounded-2xl shadow-sm">
+            <Award size={28} className="text-purple-600" />
             <div>
-              <span className="text-[10px] font-extrabold uppercase text-amber-800 block">
+              <span className="text-[10px] font-extrabold uppercase text-purple-800 block">
                 Overall Fluency
               </span>
-              <span className="text-xl font-black text-slate-900">
+              <span className="text-xl font-black text-purple-950">
                 {report?.overall_fluency_score || 80.5}%
               </span>
             </div>
