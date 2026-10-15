@@ -42,9 +42,9 @@ export const YouTubeClassroom: React.FC = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-50 via-amber-50/60 to-white border-3 border-red-200/80 rounded-4xl p-6 sm:p-8 shadow-card w-full my-6 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-purple-50/70 via-white to-indigo-50/40 border-3 border-purple-200/80 rounded-4xl p-6 sm:p-8 shadow-card w-full my-6 relative overflow-hidden">
       {/* Decorative film reel accents */}
-      <div className="absolute top-0 right-0 w-36 h-36 bg-red-100/50 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-36 h-36 bg-purple-100/50 rounded-full blur-2xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">

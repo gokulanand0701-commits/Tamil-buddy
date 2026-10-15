@@ -164,12 +164,12 @@ export const SentenceLab: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-4xl p-6 sm:p-8 border-3 border-teal-200/80 shadow-card w-full my-6">
+    <div className="bg-white rounded-4xl p-6 sm:p-8 border-3 border-purple-200 shadow-card w-full my-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
         <div>
-          <div className="inline-flex items-center gap-1.5 bg-teal-100 text-teal-800 px-3.5 py-1 rounded-full text-xs font-black mb-1.5 shadow-xs">
-            <Sparkles size={14} className="text-teal-600" />
+          <div className="inline-flex items-center gap-1.5 bg-purple-100 text-purple-800 border border-purple-200 px-3.5 py-1 rounded-full text-xs font-black mb-1.5 shadow-xs">
+            <Sparkles size={14} className="text-purple-600" />
             <span>{isTamil ? '10 கேள்விகள் கொண்ட படிநிலைப் பயிற்சி' : 'LEVEL-BY-LEVEL 10-QUESTION LAB'}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">

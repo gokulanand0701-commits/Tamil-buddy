@@ -182,11 +182,11 @@ export const TamilSoundboard: React.FC = () => {
 
   return (
     <div className="w-full space-y-6">
-      {/* 1. Thirukkural Sparkle of the Day Card */}
+      {/* 1. Thirukkural Sparkle of the Day Card with Cozy Purple Palette */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-400 via-orange-400 to-rose-400 p-6 text-white shadow-playful border-4 border-amber-200/60"
+        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-800 p-6 text-white shadow-playful border-4 border-purple-300/60"
       >
         {/* Decorative Floating Sparkles */}
         <div className="absolute top-2 right-3 opacity-30 text-6xl select-none pointer-events-none">

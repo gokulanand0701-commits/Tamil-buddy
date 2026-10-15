@@ -84,7 +84,7 @@ export const ListenAndPick: React.FC<ListenAndPickProps> = ({
         <motion.div
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 bg-amber-50 border-2 border-amber-300 text-amber-900 px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold text-center"
+          className="mb-4 bg-purple-50 border-2 border-purple-300 text-purple-900 px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold text-center"
         >
           {retryMessage}
         </motion.div>
@@ -97,7 +97,7 @@ export const ListenAndPick: React.FC<ListenAndPickProps> = ({
           const isCorrect = option.tamil === targetTamil;
 
           let cardStyle =
-            'bg-white border-2 border-slate-200 hover:border-amber-400 hover:bg-amber-50/40 text-slate-800 shadow-sm';
+            'bg-white border-2 border-slate-200 hover:border-purple-400 hover:bg-purple-50/50 text-slate-800 shadow-sm';
           if (isCurrentSelected && isCorrect) {
             cardStyle = 'bg-emerald-50 border-3 border-emerald-500 text-emerald-900 shadow-md';
           } else if (isCurrentSelected && !isCorrect) {

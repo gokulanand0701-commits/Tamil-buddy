@@ -82,9 +82,9 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
 
   return (
     <div className="flex flex-col items-center max-w-xl mx-auto w-full">
-      <div className="bg-amber-100/60 border-2 border-amber-300 rounded-3xl p-4 w-full mb-6 text-center">
-        <h3 className="font-extrabold text-base md:text-lg text-slate-800">{prompt}</h3>
-        <p className="text-xs font-semibold text-amber-800 mt-0.5">
+      <div className="bg-purple-100/70 border-2 border-purple-300 rounded-3xl p-4 w-full mb-6 text-center">
+        <h3 className="font-extrabold text-base md:text-lg text-purple-950">{prompt}</h3>
+        <p className="text-xs font-semibold text-purple-800 mt-0.5">
           Tap a Tamil word, then tap its match! ({matchedPairs.length}/{pairs.length} paired)
         </p>
       </div>
@@ -101,11 +101,11 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
             const isWrong = wrongPair?.tamil === p.tamil;
 
             let style =
-              'bg-white border-2 border-slate-200 hover:border-teal-400 text-slate-800 shadow-sm';
+              'bg-white border-2 border-slate-200 hover:border-purple-400 text-slate-800 shadow-sm';
             if (isMatched) {
               style = 'bg-emerald-100/80 border-2 border-emerald-500 text-emerald-800 opacity-80';
             } else if (isSelected) {
-              style = 'bg-teal-50 border-3 border-teal-500 text-teal-900 shadow-md scale-102';
+              style = 'bg-purple-100 border-3 border-purple-600 text-purple-950 shadow-md scale-102';
             } else if (isWrong) {
               style = 'bg-rose-50 border-3 border-rose-400 text-rose-900 animate-shake';
             }
@@ -122,7 +122,7 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
                   {p.tamil}
                 </span>
                 {p.translit && (
-                  <span className="text-xs font-semibold text-teal-600 mt-0.5">
+                  <span className="text-xs font-semibold text-purple-700 mt-0.5">
                     ({p.translit})
                   </span>
                 )}
@@ -147,11 +147,11 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
             const isWrong = wrongPair?.english === p.english;
 
             let style =
-              'bg-white border-2 border-slate-200 hover:border-amber-400 text-slate-800 shadow-sm';
+              'bg-white border-2 border-slate-200 hover:border-purple-400 text-slate-800 shadow-sm';
             if (isMatched) {
               style = 'bg-emerald-100/80 border-2 border-emerald-500 text-emerald-800 opacity-80';
             } else if (isSelected) {
-              style = 'bg-amber-50 border-3 border-amber-500 text-amber-900 shadow-md scale-102';
+              style = 'bg-purple-50 border-3 border-purple-500 text-purple-900 shadow-md scale-102';
             } else if (isWrong) {
               style = 'bg-rose-50 border-3 border-rose-400 text-rose-900';
             }

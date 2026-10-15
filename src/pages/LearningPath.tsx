@@ -26,7 +26,7 @@ const UNIT_GROUPS: UnitGroup[] = [
     unitNumber: 1,
     title: 'Uyir Ezhuthukkal (Vowels)',
     titleTamil: 'உயிர் எழுத்துக்கள்',
-    color: 'from-amber-400 to-amber-500',
+    color: 'from-purple-600 via-purple-500 to-indigo-600',
     badge_en: '12 Letters',
     badge_ta: '12 எழுத்துக்கள்',
   },
@@ -108,7 +108,7 @@ export const LearningPath: React.FC = () => {
     <div className="flex flex-col items-center max-w-6xl mx-auto pb-16 w-full px-2 sm:px-4">
       {/* Page Header */}
       <div className="text-center mb-6">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-black mb-2 shadow-xs">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-100 text-purple-800 border border-purple-200 text-xs font-black mb-2 shadow-xs">
           <span>✨</span>
           <span>{t('exploreBanner')}</span>
           <span>✨</span>
@@ -122,16 +122,16 @@ export const LearningPath: React.FC = () => {
       </div>
 
       {/* Interactive Feature Tabs */}
-      <div className="w-full max-w-3xl bg-slate-100/90 backdrop-blur-sm p-1.5 rounded-2xl flex items-center justify-between gap-1 mb-8 shadow-inner border border-slate-200 overflow-x-auto">
+      <div className="w-full max-w-3xl bg-purple-100/60 backdrop-blur-sm p-1.5 rounded-2xl flex items-center justify-between gap-1 mb-8 shadow-inner border border-purple-200 overflow-x-auto">
         <button
           onClick={() => handleTabChange('path')}
           className={`flex-1 min-w-[110px] flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl font-black text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
             activeTab === 'path'
-              ? 'bg-white text-slate-900 shadow-sm border border-slate-200 scale-100'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+              ? 'bg-purple-600 text-white shadow-sm scale-100'
+              : 'text-purple-900/70 hover:text-purple-950 hover:bg-white/50'
           }`}
         >
-          <MapPin size={16} className={activeTab === 'path' ? 'text-kili-500' : 'text-slate-400'} />
+          <MapPin size={16} className={activeTab === 'path' ? 'text-white' : 'text-purple-500'} />
           <span>{t('tabPath')} 🗺️</span>
         </button>
 
@@ -246,7 +246,7 @@ export const LearningPath: React.FC = () => {
                                 className="absolute -top-10 -right-8 z-10 flex flex-col items-center"
                               >
                                 <span className="text-2xl">🦜</span>
-                                <span className="text-[9px] font-black bg-amber-400 text-slate-900 px-1.5 py-0.2 rounded-md shadow-xs whitespace-nowrap">
+                                <span className="text-[9px] font-black bg-purple-600 text-white px-1.5 py-0.2 rounded-md shadow-xs whitespace-nowrap">
                                   {t('startHere')}
                                 </span>
                               </motion.div>
@@ -258,9 +258,9 @@ export const LearningPath: React.FC = () => {
                               onClick={() => handleNodeClick(lesson.id, isLocked)}
                               className={`w-20 h-20 rounded-full flex flex-col items-center justify-center font-black transition-all cursor-pointer relative shadow-lg ${
                                 isCompleted
-                                  ? 'bg-amber-400 text-slate-900 border-b-6 border-amber-600 hover:bg-amber-300'
+                                  ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white border-b-6 border-purple-800 hover:from-purple-400 hover:to-indigo-500'
                                   : isCurrent
-                                  ? 'bg-kili-500 text-white border-b-6 border-kili-700 hover:bg-kili-400 ring-4 ring-kili-300 ring-offset-2 animate-bounce'
+                                  ? 'bg-purple-600 text-white border-b-6 border-purple-900 hover:bg-purple-500 ring-4 ring-purple-300 ring-offset-2 animate-bounce'
                                   : 'bg-slate-200 text-slate-400 border-b-6 border-slate-300 cursor-not-allowed opacity-80'
                               }`}
                             >

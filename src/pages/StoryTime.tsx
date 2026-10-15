@@ -90,7 +90,7 @@ export const StoryTime: React.FC = () => {
     <div className="flex flex-col gap-6 max-w-7xl mx-auto w-full pb-16 px-2 sm:px-4">
       {/* Header */}
       <div className="text-center mb-2">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black mb-2 shadow-xs">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-100 text-purple-800 border border-purple-200 text-xs font-black mb-2 shadow-xs">
           <span>📖</span>
           <span>{isTamil ? 'படங்களுடன் கூடிய தமிழ் கதைக் களம்' : 'Slide-by-Slide Illustrated Stories'}</span>
           <span>✨</span>
@@ -116,8 +116,8 @@ export const StoryTime: React.FC = () => {
             }}
             className={`px-4 py-2 rounded-2xl text-xs font-black whitespace-nowrap transition-all border cursor-pointer flex items-center gap-1.5 ${
               activeGenreFilter === genre.id
-                ? 'bg-amber-400 border-amber-500 text-slate-900 shadow-sm scale-102'
-                : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
+                ? 'bg-purple-600 border-purple-700 text-white shadow-sm scale-102'
+                : 'bg-white border-purple-200 text-purple-900/80 hover:bg-purple-50'
             }`}
           >
             <span>{genre.emoji}</span>
@@ -132,14 +132,14 @@ export const StoryTime: React.FC = () => {
           <motion.div
             key={story.id}
             whileHover={{ y: -4, scale: 1.02 }}
-            className="bg-white rounded-4xl border-3 border-amber-200 hover:border-amber-400 overflow-hidden shadow-card flex flex-col justify-between transition-all group"
+            className="bg-white rounded-4xl border-2 border-purple-200 hover:border-purple-400 overflow-hidden shadow-card flex flex-col justify-between transition-all group"
           >
             {/* Story Card Top Header */}
-            <div className="p-6 bg-gradient-to-br from-amber-50 via-teal-50 to-sky-50 flex items-center justify-between border-b border-amber-100">
+            <div className="p-6 bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100/60 flex items-center justify-between border-b border-purple-100">
               <span className="text-4xl filter drop-shadow-sm group-hover:scale-110 transition-transform">
                 {story.genre_emoji || '📖'}
               </span>
-              <span className="text-xs font-black bg-white/80 px-3 py-1 rounded-full text-slate-700 shadow-xs border border-slate-200">
+              <span className="text-xs font-black bg-white/90 px-3 py-1 rounded-full text-purple-900 shadow-xs border border-purple-200">
                 {story.sentences.length} {isTamil ? 'படக் காட்சிகள்' : 'Slides'} 🖼️
               </span>
             </div>
@@ -147,7 +147,7 @@ export const StoryTime: React.FC = () => {
             {/* Story Card Content */}
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full inline-block mb-2">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-full inline-block mb-2 border border-purple-200">
                   {story.genre_label || story.level}
                 </span>
 
@@ -166,7 +166,7 @@ export const StoryTime: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleOpenStory(story)}
-                className="w-full mt-6 bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-500 hover:to-orange-500 text-slate-900 font-black py-3 rounded-2xl shadow-playful transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+                className="w-full mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-black py-3 rounded-2xl shadow-playful transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
               >
                 <BookOpen size={18} />
                 <span>{isTamil ? 'கதை படிக்கத் தொடங்கு' : 'Read Illustrated Story 📖'}</span>
@@ -184,17 +184,17 @@ export const StoryTime: React.FC = () => {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-4xl shadow-2xl border-4 border-amber-300 w-full max-w-3xl overflow-hidden flex flex-col max-h-[94vh]"
+              className="bg-white rounded-4xl shadow-2xl border-4 border-purple-300 w-full max-w-3xl overflow-hidden flex flex-col max-h-[94vh]"
             >
               {/* Modal Top Bar */}
-              <div className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 p-4 text-white flex items-center justify-between shrink-0 shadow-sm">
+              <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-800 p-4 text-white flex items-center justify-between shrink-0 shadow-sm">
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl">{selectedStory.genre_emoji || '📖'}</span>
                   <div>
                     <h2 className="font-black text-base sm:text-lg leading-tight">
                       {isTamil ? selectedStory.title_tamil : selectedStory.title_english}
                     </h2>
-                    <span className="text-xs text-amber-100 font-semibold font-tamil">
+                    <span className="text-xs text-purple-200 font-semibold font-tamil">
                       {selectedStory.title_tamil}
                     </span>
                   </div>
@@ -226,12 +226,12 @@ export const StoryTime: React.FC = () => {
                       />
                     </div>
 
-                    {/* 2. 3-Layer Sentence Display Card */}
-                    <div className="bg-amber-50/70 border-2 border-amber-200 rounded-3xl p-4 sm:p-5 text-center space-y-3 relative">
+                    {/* 2. 3-Layer Sentence Display Card with Cozy Purple Theme */}
+                    <div className="bg-purple-50/70 border-2 border-purple-200 rounded-3xl p-4 sm:p-5 text-center space-y-3 relative">
                       {/* Audio listen button */}
                       <button
                         onClick={handleSpeakCurrentSentence}
-                        className="absolute top-3 right-3 w-10 h-10 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white flex items-center justify-center shadow-md active:scale-95 transition-all cursor-pointer"
+                        className="absolute top-3 right-3 w-10 h-10 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all cursor-pointer"
                         title="Hear Sentence in Tamil"
                       >
                         <Volume2 size={20} />
@@ -244,7 +244,7 @@ export const StoryTime: React.FC = () => {
                             <button
                               key={idx}
                               onClick={() => handleWordTap(w)}
-                              className="font-tamil font-black text-xl sm:text-2xl text-slate-900 hover:text-amber-700 bg-white hover:bg-amber-100 px-3 py-1.5 rounded-2xl shadow-xs border border-amber-200 transition-all cursor-pointer"
+                              className="font-tamil font-black text-xl sm:text-2xl text-slate-900 hover:text-purple-700 bg-white hover:bg-purple-50 px-3 py-1.5 rounded-2xl shadow-xs border border-purple-200 transition-all cursor-pointer"
                             >
                               {w.tamil}
                             </button>
@@ -308,7 +308,7 @@ export const StoryTime: React.FC = () => {
                             }}
                             className={`w-3 h-3 rounded-full transition-all cursor-pointer ${
                               dotIdx === activeSlideIndex
-                                ? 'w-6 bg-amber-500 shadow-xs'
+                                ? 'w-6 bg-purple-600 shadow-xs'
                                 : 'bg-slate-200 hover:bg-slate-300'
                             }`}
                           />
@@ -317,7 +317,7 @@ export const StoryTime: React.FC = () => {
 
                       <button
                         onClick={handleNextSlide}
-                        className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black px-5 py-2.5 rounded-2xl text-xs shadow-md active:scale-95 transition-all cursor-pointer"
+                        className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-black px-5 py-2.5 rounded-2xl text-xs shadow-md active:scale-95 transition-all cursor-pointer"
                       >
                         <span>
                           {activeSlideIndex + 1 === selectedStory.sentences.length
@@ -340,7 +340,7 @@ export const StoryTime: React.FC = () => {
                     </motion.div>
 
                     <div>
-                      <span className="text-xs font-black uppercase text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
+                      <span className="text-xs font-black uppercase text-purple-700 bg-purple-100 px-3 py-1 rounded-full border border-purple-200">
                         {isTamil ? 'கதை நிறைவடைந்தது!' : 'Story Completed!'}
                       </span>
                       <h3 className="text-2xl font-black text-slate-800 mt-2">
@@ -349,8 +349,8 @@ export const StoryTime: React.FC = () => {
                     </div>
 
                     {/* Moral Card */}
-                    <div className="bg-gradient-to-br from-amber-50 via-teal-50 to-emerald-50 border-3 border-amber-300 rounded-3xl p-6 max-w-md w-full shadow-sm text-center">
-                      <span className="text-xs font-black text-teal-800 uppercase tracking-wider block mb-1">
+                    <div className="bg-gradient-to-br from-purple-50 via-indigo-50 to-white border-2 border-purple-200 rounded-3xl p-6 max-w-md w-full shadow-sm text-center">
+                      <span className="text-xs font-black text-purple-800 uppercase tracking-wider block mb-1">
                         🌟 {isTamil ? 'கதையின் நீதி (Moral of the Story)' : 'Moral of the Story'}
                       </span>
                       <p className="font-tamil font-extrabold text-lg text-slate-900 leading-relaxed">
@@ -366,7 +366,7 @@ export const StoryTime: React.FC = () => {
                           setActiveSlideIndex(0);
                           setIsStoryFinished(false);
                         }}
-                        className="w-full bg-amber-400 hover:bg-amber-300 text-slate-900 font-black py-3 rounded-2xl flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-black py-3 rounded-2xl flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-transform active:scale-95"
                       >
                         <RotateCcw size={16} />
                         <span>{isTamil ? 'மீண்டும் படிக்க' : 'Read Again 🔄'}</span>

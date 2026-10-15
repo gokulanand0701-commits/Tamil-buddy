@@ -157,7 +157,7 @@ export const SpeakIt: React.FC<SpeakItProps> = ({
                 evalResult.score >= 80
                   ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
                   : evalResult.score >= 60
-                  ? 'border-amber-500 bg-amber-50 text-amber-700'
+                  ? 'border-purple-400 bg-purple-50 text-purple-700'
                   : 'border-rose-400 bg-rose-50 text-rose-700'
               }`}
             >
@@ -172,7 +172,7 @@ export const SpeakIt: React.FC<SpeakItProps> = ({
             </div>
           </div>
 
-          {/* Per-Word Color Feedback: Green / Yellow / Red */}
+          {/* Per-Word Color Feedback: Green / Purple / Red */}
           <div className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-3 mb-4">
             <span className="text-[11px] font-bold uppercase text-slate-500 block mb-2">
               Word-by-word pronunciation accuracy:
@@ -183,7 +183,7 @@ export const SpeakIt: React.FC<SpeakItProps> = ({
                   pw.status === 'correct'
                     ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
                     : pw.status === 'close'
-                    ? 'bg-amber-100 text-amber-800 border-amber-300'
+                    ? 'bg-purple-100 text-purple-800 border-purple-300'
                     : 'bg-rose-100 text-rose-800 border-rose-300';
 
                 return (

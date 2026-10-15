@@ -18,29 +18,29 @@ export const Rewards: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full pb-16">
-      {/* Page Header */}
-      <div className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-200 rounded-3xl p-6 border-2 border-amber-300 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-        <div>
-          <div className="inline-flex items-center gap-1.5 bg-white/70 px-3 py-1 rounded-full text-xs font-black text-amber-900 mb-2">
-            <Trophy size={14} className="text-amber-600" />
+      {/* Page Header with Cozy Purple & White Palette */}
+      <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-800 rounded-3xl p-6 border-2 border-purple-300/50 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left text-white relative overflow-hidden">
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-1.5 bg-white/20 px-3 py-1 rounded-full text-xs font-black text-purple-100 mb-2 border border-white/20">
+            <Trophy size={14} className="text-amber-300" />
             <span>HALL OF FAME & REWARDS</span>
           </div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+          <h1 className="text-3xl font-black text-white tracking-tight">
             Awards & Treasures 🏆
           </h1>
-          <p className="text-xs sm:text-sm text-slate-800 font-semibold mt-0.5">
+          <p className="text-xs sm:text-sm text-purple-100 font-semibold mt-0.5">
             Collect special badges, stickers, and climb the friendly leaderboard!
           </p>
         </div>
 
         {/* User Summary Pill */}
-        <div className="flex items-center gap-3 bg-white/80 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-amber-300 shadow-xs shrink-0">
+        <div className="relative z-10 flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-purple-200 shadow-xs shrink-0 text-slate-800">
           <span className="text-3xl">🦜</span>
           <div>
-            <span className="text-xs font-black text-slate-800 block">
+            <span className="text-xs font-black text-slate-900 block">
               {user?.name || 'Explorer'}
             </span>
-            <span className="text-[11px] font-bold text-teal-700">
+            <span className="text-[11px] font-bold text-purple-700">
               Level {user?.level || 3} • {user?.xp || 380} XP
             </span>
           </div>
@@ -48,14 +48,14 @@ export const Rewards: React.FC = () => {
       </div>
 
       {/* Tabs Selector */}
-      <div className="flex items-center justify-center gap-2 bg-slate-100 p-1.5 rounded-2xl max-w-md mx-auto w-full">
+      <div className="flex items-center justify-center gap-2 bg-purple-100/60 p-1.5 rounded-2xl max-w-md mx-auto w-full border border-purple-200">
         <button
           type="button"
           onClick={() => handleTabChange('badges')}
           className={`flex-1 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
             activeTab === 'badges'
-              ? 'bg-white text-slate-900 shadow-sm'
-              : 'text-slate-600 hover:text-slate-900'
+              ? 'bg-purple-600 text-white shadow-sm'
+              : 'text-purple-900/70 hover:text-purple-950'
           }`}
         >
           <Award size={16} /> Badges
@@ -66,8 +66,8 @@ export const Rewards: React.FC = () => {
           onClick={() => handleTabChange('stickers')}
           className={`flex-1 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
             activeTab === 'stickers'
-              ? 'bg-white text-slate-900 shadow-sm'
-              : 'text-slate-600 hover:text-slate-900'
+              ? 'bg-purple-600 text-white shadow-sm'
+              : 'text-purple-900/70 hover:text-purple-950'
           }`}
         >
           <Sparkles size={16} /> Sticker Book
@@ -78,8 +78,8 @@ export const Rewards: React.FC = () => {
           onClick={() => handleTabChange('leaderboard')}
           className={`flex-1 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
             activeTab === 'leaderboard'
-              ? 'bg-white text-slate-900 shadow-sm'
-              : 'text-slate-600 hover:text-slate-900'
+              ? 'bg-purple-600 text-white shadow-sm'
+              : 'text-purple-900/70 hover:text-purple-950'
           }`}
         >
           <Trophy size={16} /> Friends League

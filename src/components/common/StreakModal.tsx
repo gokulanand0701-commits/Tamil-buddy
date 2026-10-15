@@ -68,10 +68,10 @@ export const StreakModal: React.FC<StreakModalProps> = ({ isOpen, onClose }) => 
         initial={{ scale: 0.94, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.94, opacity: 0 }}
-        className="bg-white rounded-4xl shadow-2xl border-4 border-orange-300 w-full max-w-lg overflow-hidden flex flex-col max-h-[92vh]"
+        className="bg-white rounded-4xl shadow-2xl border-4 border-purple-300 w-full max-w-lg overflow-hidden flex flex-col max-h-[92vh]"
       >
         {/* Header Banner */}
-        <div className="bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 p-6 text-white text-center relative overflow-hidden shrink-0">
+        <div className="bg-gradient-to-br from-purple-700 via-purple-600 to-indigo-800 p-6 text-white text-center relative overflow-hidden shrink-0">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors cursor-pointer"
@@ -88,7 +88,7 @@ export const StreakModal: React.FC<StreakModalProps> = ({ isOpen, onClose }) => 
             >
               🔥
             </motion.div>
-            <span className="absolute -bottom-2 -right-2 bg-amber-300 text-slate-900 font-black text-xs px-2 py-0.5 rounded-full shadow-sm">
+            <span className="absolute -bottom-2 -right-2 bg-purple-200 text-purple-950 font-black text-xs px-2 py-0.5 rounded-full shadow-sm">
               +{streak}
             </span>
           </div>
@@ -96,7 +96,7 @@ export const StreakModal: React.FC<StreakModalProps> = ({ isOpen, onClose }) => 
           <h2 className="text-2xl sm:text-3xl font-black tracking-tight">
             {streak} {isTamil ? 'நாள் தொடர் சாதனை!' : 'Day Consistency Streak!'}
           </h2>
-          <p className="text-xs sm:text-sm text-amber-100 font-semibold mt-1">
+          <p className="text-xs sm:text-sm text-purple-100 font-semibold mt-1">
             {isTamil
               ? 'தினமும் தொடர்ந்து தமிழ் கற்று சாதனை படைக்கிறீர்கள்!'
               : 'You are mastering Tamil by learning every single day!'}
@@ -106,12 +106,12 @@ export const StreakModal: React.FC<StreakModalProps> = ({ isOpen, onClose }) => 
         {/* Modal Scrollable Body */}
         <div className="p-6 overflow-y-auto space-y-6">
           {/* 7-Day Consistency Week Heatmap */}
-          <div className="bg-orange-50/70 border-2 border-orange-200/80 rounded-3xl p-4">
+          <div className="bg-purple-50/70 border-2 border-purple-200/80 rounded-3xl p-4">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-xs font-black uppercase text-orange-800 tracking-wider">
+              <span className="text-xs font-black uppercase text-purple-900 tracking-wider">
                 {isTamil ? 'இந்த வார முன்னேற்றம்' : 'This Week Progress'}
               </span>
-              <span className="text-xs font-bold text-orange-600">
+              <span className="text-xs font-bold text-purple-700">
                 {streak >= 7 ? '7/7 Days Complete! 🌟' : `${streak} Days Active`}
               </span>
             </div>
@@ -127,8 +127,8 @@ export const StreakModal: React.FC<StreakModalProps> = ({ isOpen, onClose }) => 
                     <div
                       className={`w-9 h-11 rounded-2xl flex items-center justify-center font-black text-xs transition-all shadow-xs ${
                         isDayDone
-                          ? 'bg-gradient-to-t from-orange-500 to-amber-400 text-white shadow-sm ring-2 ring-orange-200'
-                          : 'bg-white border-2 border-slate-200 text-slate-400'
+                          ? 'bg-gradient-to-t from-purple-600 to-indigo-500 text-white shadow-sm ring-2 ring-purple-200'
+                          : 'bg-white border-2 border-purple-100 text-slate-400'
                       }`}
                     >
                       {isDayDone ? '🔥' : '•'}

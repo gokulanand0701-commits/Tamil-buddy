@@ -87,18 +87,22 @@ export const HomeDashboard: React.FC = () => {
         </motion.div>
       )}
 
-      {/* Top Banner Card: Greeting + Kili + Continue CTA */}
-      <div className="bg-gradient-to-r from-amber-400 via-amber-300 to-orange-200 rounded-4xl p-6 sm:p-8 lg:p-10 shadow-playful relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-amber-300">
+      {/* Top Banner Card: Greeting + Kili + Continue CTA with Cozy Purple & White Palette */}
+      <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-800 rounded-4xl p-6 sm:p-8 lg:p-10 shadow-playful relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-purple-400/50 text-white">
+        {/* Subtle decorative purple blurs */}
+        <div className="absolute -top-16 -right-16 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-purple-400/20 rounded-full blur-2xl pointer-events-none" />
+
         <div className="relative z-10 flex-1 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-black text-amber-900 mb-2 shadow-xs">
-            <Sparkles size={14} className="text-amber-600" />
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-black text-purple-100 mb-2 shadow-xs border border-white/20">
+            <Sparkles size={14} className="text-amber-300 animate-spin" />
             <span>{t('dailyAdventure')}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
             {t('greeting')}, {childName}! 👋
           </h1>
-          <p className="text-slate-800 text-sm sm:text-base font-semibold mt-2 mb-6 max-w-xl">
+          <p className="text-purple-100 text-sm sm:text-base font-semibold mt-2 mb-6 max-w-xl">
             {t('welcomeSub')}
           </p>
 
@@ -107,6 +111,7 @@ export const HomeDashboard: React.FC = () => {
             size="xl"
             onClick={handleStartLearning}
             icon={<Play size={22} className="fill-white" />}
+            className="bg-white text-purple-900 hover:bg-purple-50 font-black shadow-lg border-2 border-white/80"
           >
             {t('continueLearning')} ({t('unit')} {currentLesson.unit})
           </Button>
@@ -187,20 +192,20 @@ export const HomeDashboard: React.FC = () => {
         </div>
 
         {/* Card 3: Level & XP Bar */}
-        <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-card border-2 border-slate-100 flex flex-col justify-between">
+        <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-card border-2 border-purple-100 flex flex-col justify-between">
           <div className="flex justify-between items-center">
             <span className="text-xs font-extrabold uppercase text-slate-400 tracking-wider">
               {t('levelProgress')}
             </span>
-            <span className="text-xs font-black text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full flex items-center gap-1">
-              <Zap size={13} className="fill-amber-600" /> {xp} {t('xpLabel')}
+            <span className="text-xs font-black text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-purple-200">
+              <Zap size={13} className="fill-purple-600 text-purple-600" /> {xp} {t('xpLabel')}
             </span>
           </div>
 
           <div className="my-2 sm:my-3">
-            <div className="w-full bg-slate-100 h-3.5 rounded-full overflow-hidden p-0.5 border border-slate-200">
+            <div className="w-full bg-purple-50 h-3.5 rounded-full overflow-hidden p-0.5 border border-purple-200">
               <div
-                className="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full transition-all duration-500"
+                className="bg-gradient-to-r from-purple-600 to-indigo-600 h-full rounded-full transition-all duration-500 shadow-xs"
                 style={{ width: `${xpPercent}%` }}
               />
             </div>
@@ -215,13 +220,13 @@ export const HomeDashboard: React.FC = () => {
       {/* Main Content Grid: Daily Quests & Quick Shortcuts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Daily Quests Card (2 cols) */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-card border-2 border-slate-100">
+        <div className="lg:col-span-2 bg-white rounded-3xl p-6 shadow-card border-2 border-purple-100">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🎯</span>
               <h2 className="font-extrabold text-lg text-slate-800">{t('todaysQuests')}</h2>
             </div>
-            <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">
+            <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2.5 py-1 rounded-full border border-purple-200">
               {t('resetMidnight')}
             </span>
           </div>
@@ -230,12 +235,12 @@ export const HomeDashboard: React.FC = () => {
             {dailyQuests.map((quest) => (
               <div
                 key={quest.id}
-                className="p-3.5 rounded-2xl border-2 border-slate-100 hover:border-slate-200 bg-slate-50/50 flex items-center justify-between gap-3 transition-colors"
+                className="p-3.5 rounded-2xl border-2 border-purple-100 hover:border-purple-200 bg-purple-50/30 flex items-center justify-between gap-3 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold ${
-                      quest.is_completed ? 'bg-emerald-100 text-emerald-600' : 'bg-amber-100 text-amber-600'
+                      quest.is_completed ? 'bg-emerald-100 text-emerald-600' : 'bg-purple-100 text-purple-700'
                     }`}
                   >
                     {quest.is_completed ? <CheckCircle2 size={20} /> : <Zap size={20} />}
@@ -261,13 +266,13 @@ export const HomeDashboard: React.FC = () => {
 
         {/* Quick Review / Spaced Repetition Card */}
         <div className="flex flex-col gap-4">
-          <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-5 border-2 border-teal-200 shadow-sm flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-5 border-2 border-purple-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-teal-800 font-extrabold text-sm mb-1">
-                <RefreshCw size={18} className="text-teal-600" />
+              <div className="flex items-center gap-2 text-purple-900 font-extrabold text-sm mb-1">
+                <RefreshCw size={18} className="text-purple-600" />
                 <span>{isTamil ? 'விரைவு நினைவூட்டல்' : 'Spaced Repetition Review'}</span>
               </div>
-              <p className="text-xs text-slate-600 font-medium">
+              <p className="text-xs text-purple-950 font-medium">
                 {isTamil ? '3 எழுத்துக்களை விரைவாக நினைவுகூறத் தயார்!' : 'SuperMemo SM-2 says: 3 letters are ready for quick memory refresh!'}
               </p>
 
@@ -275,7 +280,7 @@ export const HomeDashboard: React.FC = () => {
                 {['அ', 'ஆ', 'இ'].map((char) => (
                   <span
                     key={char}
-                    className="w-10 h-10 rounded-xl bg-white border border-teal-200 shadow-xs flex items-center justify-center font-tamil text-xl font-black text-teal-800"
+                    className="w-10 h-10 rounded-xl bg-white border border-purple-200 shadow-xs flex items-center justify-center font-tamil text-xl font-black text-purple-800"
                   >
                     {char}
                   </span>
@@ -288,6 +293,7 @@ export const HomeDashboard: React.FC = () => {
               size="sm"
               onClick={() => navigate('/learn')}
               icon={<Play size={14} />}
+              className="bg-purple-600 text-white hover:bg-purple-700 border-none"
             >
               {isTamil ? '2 நிமிடப் பயிற்சி தொடங்கு' : 'Start 2-Min Review'}
             </Button>

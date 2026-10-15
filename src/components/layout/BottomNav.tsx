@@ -53,7 +53,7 @@ export const BottomNav: React.FC = () => {
 
   return (
     <>
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t-2 border-slate-200/80 shadow-lg px-2 sm:px-4 py-2 transition-all">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t-2 border-purple-200/80 shadow-lg px-2 sm:px-4 py-2 transition-all">
         {/* Responsive container: comfortable on desktops, tablets, and mobile */}
         <div className="max-w-3xl mx-auto flex items-center justify-around gap-1 sm:gap-2">
           {navItems.map((item) => {
@@ -68,7 +68,7 @@ export const BottomNav: React.FC = () => {
                 className={({ isActive }) =>
                   `flex flex-col items-center justify-center py-1 px-2 rounded-2xl transition-all duration-150 flex-1 max-w-[80px] sm:max-w-[100px] ${
                     isActive
-                      ? 'text-amber-600 font-extrabold scale-105'
+                      ? 'text-purple-700 font-extrabold scale-105'
                       : 'text-slate-500 hover:text-slate-800 font-medium'
                   }`
                 }
@@ -77,7 +77,7 @@ export const BottomNav: React.FC = () => {
                   <>
                     <div
                       className={`p-1.5 rounded-xl transition-colors ${
-                        isActive ? 'bg-amber-100 text-amber-600 shadow-xs' : 'text-slate-500'
+                        isActive ? 'bg-purple-100 text-purple-700 shadow-xs' : 'text-slate-500'
                       }`}
                     >
                       <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />

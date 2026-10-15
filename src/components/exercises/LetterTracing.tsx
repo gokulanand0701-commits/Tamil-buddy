@@ -188,13 +188,13 @@ export const LetterTracing: React.FC<LetterTracingProps> = ({
 
   return (
     <div className="flex flex-col items-center max-w-lg mx-auto w-full">
-      {/* Top Header Card */}
-      <div className="bg-amber-100/70 border-2 border-amber-300 rounded-3xl p-4 w-full flex items-center justify-between shadow-sm mb-4">
+      {/* Top Header Card with Cozy Purple Theme */}
+      <div className="bg-purple-100/70 border-2 border-purple-300 rounded-3xl p-4 w-full flex items-center justify-between shadow-sm mb-4">
         <div className="flex items-center gap-3">
           <button
             onClick={handlePlaySound}
             aria-label="Play sound"
-            className="w-12 h-12 rounded-2xl bg-teal-500 hover:bg-teal-600 text-white flex items-center justify-center shadow-md active:scale-95 transition-all"
+            className="w-12 h-12 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center shadow-md active:scale-95 transition-all"
           >
             <Volume2 size={24} />
           </button>

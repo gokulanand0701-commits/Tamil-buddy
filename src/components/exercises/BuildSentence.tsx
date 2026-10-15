@@ -70,15 +70,15 @@ export const BuildSentence: React.FC<BuildSentenceProps> = ({
   return (
     <div className="flex flex-col items-center max-w-lg mx-auto w-full">
       {/* Exercise Goal */}
-      <div className="bg-amber-100/70 border-2 border-amber-300 rounded-3xl p-4 w-full mb-5 text-center">
-        <h3 className="font-extrabold text-base md:text-lg text-slate-800">{prompt}</h3>
+      <div className="bg-purple-100/70 border-2 border-purple-300 rounded-3xl p-4 w-full mb-5 text-center">
+        <h3 className="font-extrabold text-base md:text-lg text-purple-950">{prompt}</h3>
         {sentenceMeaning && (
-          <p className="text-xs font-bold text-teal-700 mt-1 italic">"{sentenceMeaning}"</p>
+          <p className="text-xs font-bold text-purple-800 mt-1 italic">"{sentenceMeaning}"</p>
         )}
       </div>
 
       {/* Target Sentence Area */}
-      <div className="w-full min-h-[100px] bg-white border-3 border-dashed border-amber-300 rounded-3xl p-4 mb-6 flex flex-wrap items-center justify-center gap-2.5 shadow-inner">
+      <div className="w-full min-h-[100px] bg-white border-3 border-dashed border-purple-300 rounded-3xl p-4 mb-6 flex flex-wrap items-center justify-center gap-2.5 shadow-inner">
         {selectedTiles.length === 0 ? (
           <span className="text-sm font-semibold text-slate-400 select-none">
             Tap the word tiles below to place them here 👆
@@ -92,10 +92,10 @@ export const BuildSentence: React.FC<BuildSentenceProps> = ({
               animate={{ scale: 1, opacity: 1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleRemoveTile(tile)}
-              className="bg-teal-500 hover:bg-teal-400 text-white font-extrabold px-4 py-2.5 rounded-2xl shadow-md border-b-3 border-teal-700 flex flex-col items-center cursor-pointer"
+              className="bg-purple-600 hover:bg-purple-500 text-white font-extrabold px-4 py-2.5 rounded-2xl shadow-md border-b-3 border-purple-800 flex flex-col items-center cursor-pointer"
             >
               <span className="font-tamil text-xl leading-tight">{tile.tamil}</span>
-              <span className="text-[10px] text-teal-100 font-semibold">{tile.translit}</span>
+              <span className="text-[10px] text-purple-100 font-semibold">{tile.translit}</span>
             </motion.button>
           ))
         )}
@@ -109,7 +109,7 @@ export const BuildSentence: React.FC<BuildSentenceProps> = ({
           className={`mb-4 px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold text-center border-2 ${
             feedback.includes('Super')
               ? 'bg-emerald-50 border-emerald-300 text-emerald-800'
-              : 'bg-amber-50 border-amber-300 text-amber-900'
+              : 'bg-purple-50 border-purple-300 text-purple-900'
           }`}
         >
           {feedback}
@@ -117,7 +117,7 @@ export const BuildSentence: React.FC<BuildSentenceProps> = ({
       )}
 
       {/* Scrambled Word Pool */}
-      <div className="w-full bg-slate-100/80 border-2 border-slate-200 rounded-3xl p-4 mb-6 flex flex-wrap items-center justify-center gap-3">
+      <div className="w-full bg-purple-50/50 border-2 border-purple-200 rounded-3xl p-4 mb-6 flex flex-wrap items-center justify-center gap-3">
         {availableTiles.length === 0 ? (
           <span className="text-xs font-bold text-slate-400 py-2">
             All tiles placed! Ready to check?
@@ -130,7 +130,7 @@ export const BuildSentence: React.FC<BuildSentenceProps> = ({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleAddTile(tile)}
-              className="bg-white hover:bg-amber-50 text-slate-800 border-2 border-slate-300 hover:border-amber-400 font-extrabold px-4 py-2.5 rounded-2xl shadow-sm border-b-4 border-b-slate-400 flex flex-col items-center cursor-pointer transition-colors"
+              className="bg-white hover:bg-purple-50 text-slate-800 border-2 border-slate-300 hover:border-purple-400 font-extrabold px-4 py-2.5 rounded-2xl shadow-sm border-b-4 border-b-slate-400 flex flex-col items-center cursor-pointer transition-colors"
             >
               <span className="font-tamil text-xl leading-tight">{tile.tamil}</span>
               <span className="text-[10px] text-slate-500 font-semibold">{tile.translit}</span>
