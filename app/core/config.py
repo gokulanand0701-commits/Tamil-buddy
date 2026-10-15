@@ -1,3 +1,4 @@
+import os
 from typing import List
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -7,8 +8,8 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     API_V1_STR: str = ""
     
-    # Database
-    DATABASE_URL: str = "sqlite:///./tamil_buddy.db"
+    # Database: Use /tmp on Vercel serverless, local file in dev
+    DATABASE_URL: str = "sqlite:////tmp/tamil_buddy.db" if os.environ.get("VERCEL") else "sqlite:///./tamil_buddy.db"
     
     # JWT Auth
     SECRET_KEY: str = "tamilbuddy-secret-key-change-in-production-123456789"
@@ -22,10 +23,13 @@ class Settings(BaseSettings):
     
     # CORS
     CORS_ORIGINS: List[str] = [
+        "*",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
-        "http://127.0.0.1:3000"
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000"
     ]
 
     model_config = SettingsConfigDict(
