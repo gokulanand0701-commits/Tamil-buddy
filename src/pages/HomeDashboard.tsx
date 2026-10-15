@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Flame, Zap, Play, CheckCircle2, Sparkles, BookOpen, MessageSquare, Snowflake, RefreshCw, Trophy } from 'lucide-react';
+import { Flame, Zap, Play, CheckCircle2, Sparkles, BookOpen, MessageSquare, Snowflake, RefreshCw, Trophy, ChevronRight } from 'lucide-react';
 import { Button } from '../components/common/Button';
 import { KiliMascot } from '../components/common/KiliMascot';
 import { useAuthStore } from '../store/useAuthStore';
@@ -109,10 +109,23 @@ export const HomeDashboard: React.FC = () => {
           <button
             type="button"
             onClick={handleStartLearning}
-            className="bg-white hover:bg-purple-50 text-purple-950 font-black px-6 py-3.5 rounded-2xl shadow-lg border-2 border-white/80 flex items-center justify-center md:justify-start gap-2.5 text-sm sm:text-base transition-all active:scale-95 cursor-pointer"
+            style={{ backgroundColor: '#ffffff', color: '#2e1065' }}
+            className="group mt-2 px-6 py-3.5 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-white/90 inline-flex items-center gap-4 text-left transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <Play size={20} className="fill-purple-900 text-purple-900" />
-            <span>{t('continueLearning')} ({t('unit')} {currentLesson.unit})</span>
+            <div className="w-11 h-11 rounded-xl bg-purple-700 text-white flex items-center justify-center shadow-md shrink-0 group-hover:scale-110 transition-transform">
+              <Play size={20} className="fill-white text-white translate-x-0.5" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-base sm:text-lg font-black tracking-tight" style={{ color: '#2e1065' }}>
+                {t('continueLearning')}
+              </span>
+              <span className="text-xs sm:text-sm font-extrabold" style={{ color: '#6b21a8' }}>
+                {t('unit')} {currentLesson.unit}: {isTamil ? currentLesson.title_tamil : currentLesson.title}
+              </span>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center shrink-0 ml-1 group-hover:bg-purple-200 transition-colors">
+              <ChevronRight size={18} className="text-purple-900" />
+            </div>
           </button>
         </div>
 
