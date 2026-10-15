@@ -29,12 +29,20 @@ interface ProgressState {
 }
 
 export const useProgressStore = create<ProgressState>((set, get) => {
-  // Load saved lessons from localStorage if available
+  // Load saved lessons from localStorage if available, merging with MOCK_LESSONS
   const savedLessonsStr = localStorage.getItem('tamil_buddy_lessons');
   let lessons = MOCK_LESSONS;
   if (savedLessonsStr) {
     try {
-      lessons = JSON.parse(savedLessonsStr);
+      const parsed = JSON.parse(savedLessonsStr);
+      if (Array.isArray(parsed)) {
+        lessons = MOCK_LESSONS.map((ml) => {
+          const existing = parsed.find((p: Lesson) => p.id === ml.id);
+          return existing
+            ? { ...ml, is_completed: existing.is_completed, stars: existing.stars, is_locked: existing.is_locked ?? ml.is_locked }
+            : ml;
+        });
+      }
     } catch (e) {
       lessons = MOCK_LESSONS;
     }

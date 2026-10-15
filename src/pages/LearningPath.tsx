@@ -270,41 +270,41 @@ export const LearningPath: React.FC = () => {
           {/* Horizontal Scrollable Adventure Path Track */}
           <div
             ref={scrollContainerRef}
-            className="w-full overflow-x-auto pb-6 pt-2 scroll-smooth scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-purple-100 rounded-3xl"
+            className="w-full overflow-x-auto pb-8 pt-3 scroll-smooth scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-purple-100 rounded-3xl"
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
-            <div className="flex items-center gap-8 min-w-max px-2 py-6">
+            <div className="flex items-center gap-10 sm:gap-14 min-w-max px-3 py-6">
               {lessonsByUnit.map((unit, unitIdx) => {
                 return (
                   <div
                     key={unit.unitNumber}
                     id={`unit-island-${unit.unitNumber}`}
-                    className="flex items-center gap-8 shrink-0"
+                    className="flex items-center gap-10 sm:gap-14 shrink-0"
                   >
                     {/* Unit Adventure Island Container */}
-                    <div className="w-[380px] sm:w-[440px] rounded-4xl bg-white border-2 border-purple-200/90 shadow-xl overflow-hidden shrink-0 flex flex-col transition-all hover:shadow-2xl">
-                      {/* Unit Header Top Card */}
-                      <div className={`p-5 bg-gradient-to-r ${unit.color} text-white flex items-center justify-between relative overflow-hidden`}>
-                        <div className="absolute -top-10 -right-10 w-28 h-28 bg-white/15 rounded-full blur-xl pointer-events-none" />
+                    <div className="w-[440px] sm:w-[500px] md:w-[530px] rounded-4xl bg-white border-2 border-purple-200/90 shadow-xl overflow-hidden shrink-0 flex flex-col transition-all hover:shadow-2xl">
+                      {/* Unit Header Top Card with Generous Breathing Room */}
+                      <div className={`p-6 sm:p-7 bg-gradient-to-r ${unit.color} text-white flex items-center justify-between gap-4 relative overflow-hidden`}>
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-white/15 rounded-full blur-xl pointer-events-none" />
 
-                        <div className="relative z-10 pr-2">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="text-[10px] font-black uppercase tracking-wider bg-white/25 px-2.5 py-0.5 rounded-full">
+                        <div className="relative z-10 flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span className="text-[11px] font-black uppercase tracking-wider bg-white/25 backdrop-blur-xs px-3 py-0.5 rounded-full shadow-2xs">
                               {t('unit')} {unit.unitNumber}
                             </span>
-                            <span className="text-[11px] font-bold text-white/90">
+                            <span className="text-[11px] font-bold text-white/95 bg-white/15 px-2.5 py-0.5 rounded-full">
                               {isTamil ? unit.badge_ta : unit.badge_en}
                             </span>
                           </div>
-                          <h2 className="text-lg sm:text-xl font-black leading-snug">
+                          <h2 className="text-xl sm:text-2xl font-black leading-snug tracking-tight text-white drop-shadow-xs">
                             {isTamil ? unit.titleTamil : unit.title}
                           </h2>
-                          <p className="font-tamil text-xs font-semibold opacity-95">
+                          <p className="font-tamil text-xs sm:text-sm font-semibold text-purple-100/90 mt-1 leading-normal">
                             {isTamil ? unit.title : unit.titleTamil}
                           </p>
                         </div>
 
-                        <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl shadow-inner shrink-0 relative z-10">
+                        <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl shadow-inner shrink-0 relative z-10 border border-white/25">
                           {unit.unitNumber === 1 && '🌟'}
                           {unit.unitNumber === 2 && '✍️'}
                           {unit.unitNumber === 3 && '🧩'}
@@ -315,13 +315,13 @@ export const LearningPath: React.FC = () => {
                       </div>
 
                       {/* Horizontal Winding Stepping Trail inside Unit Island */}
-                      <div className="p-6 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/30 flex items-center justify-center min-h-[220px]">
+                      <div className="p-6 sm:p-8 bg-gradient-to-b from-purple-50/40 via-white to-purple-50/30 flex items-center justify-center min-h-[260px]">
                         {unit.lessons.length === 0 ? (
-                          <div className="bg-white/80 border-2 border-dashed border-purple-300 rounded-2xl p-4 text-center text-xs font-bold text-purple-400">
+                          <div className="bg-white/80 border-2 border-dashed border-purple-300 rounded-2xl p-6 text-center text-xs font-bold text-purple-400 max-w-[280px]">
                             {t('nextLessonsSoon')}
                           </div>
                         ) : (
-                          <div className="flex items-center gap-6 relative">
+                          <div className="flex items-center gap-7 sm:gap-9 relative">
                             {unit.lessons.map((lesson, idx) => {
                               const isCompleted = lesson.is_completed;
                               const isLocked = lesson.is_locked ?? false;
@@ -330,8 +330,8 @@ export const LearningPath: React.FC = () => {
                               // Alternating vertical undulation for that adventure winding path feel!
                               const verticalOffsets = [
                                 'translate-y-0',
-                                'translate-y-6',
-                                '-translate-y-6',
+                                'translate-y-5',
+                                '-translate-y-5',
                                 'translate-y-0',
                               ];
                               const offsetClass = verticalOffsets[idx % verticalOffsets.length];
@@ -343,7 +343,7 @@ export const LearningPath: React.FC = () => {
                                 >
                                   {/* Dotted path connector to next node */}
                                   {idx < unit.lessons.length - 1 && (
-                                    <div className="absolute top-10 left-full w-6 border-t-4 border-dashed border-purple-300 pointer-events-none -z-0" />
+                                    <div className="absolute top-10 left-full w-7 sm:w-9 border-t-4 border-dashed border-purple-300 pointer-events-none -z-0" />
                                   )}
 
                                   {/* Stepping Node Button */}
@@ -384,15 +384,15 @@ export const LearningPath: React.FC = () => {
                                     </motion.button>
                                   </div>
 
-                                  {/* Title & Stars Label below node */}
-                                  <div className="text-center mt-2.5 max-w-[120px]">
-                                    <span className="font-extrabold text-xs text-slate-800 block leading-tight truncate">
+                                  {/* Title & Stars Label below node (Readable with ample width) */}
+                                  <div className="text-center mt-3 w-[125px] sm:w-[135px]">
+                                    <span className="font-black text-xs sm:text-[13px] text-slate-800 block leading-snug line-clamp-2">
                                       {isTamil && lesson.title_tamil ? lesson.title_tamil : lesson.title}
                                     </span>
 
                                     {/* 3 Stars indicator if completed */}
                                     {isCompleted && (
-                                      <div className="flex justify-center items-center gap-0.5 mt-1">
+                                      <div className="flex justify-center items-center gap-0.5 mt-1.5">
                                         {[1, 2, 3].map((starIdx) => (
                                           <Star
                                             key={starIdx}
@@ -415,12 +415,14 @@ export const LearningPath: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Connecting Bridge to Next Unit */}
+                    {/* Connecting Bridge to Next Unit with Open Spacing */}
                     {unitIdx < lessonsByUnit.length - 1 && (
-                      <div className="flex flex-col items-center justify-center gap-1.5 shrink-0 px-1">
-                        <div className="w-10 border-t-4 border-dashed border-purple-400" />
-                        <span className="text-2xl text-purple-600 animate-pulse">➔</span>
-                        <span className="text-[10px] font-black uppercase text-purple-800 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200 whitespace-nowrap shadow-2xs">
+                      <div className="flex flex-col items-center justify-center gap-2 shrink-0 px-2">
+                        <div className="w-14 sm:w-16 border-t-4 border-dashed border-purple-400/80" />
+                        <div className="w-9 h-9 rounded-full bg-purple-100 border-2 border-purple-300 flex items-center justify-center shadow-xs">
+                          <span className="text-lg text-purple-700 animate-pulse font-bold">➔</span>
+                        </div>
+                        <span className="text-[10px] font-black uppercase text-purple-900 bg-purple-100 px-2.5 py-0.5 rounded-full border border-purple-200 whitespace-nowrap shadow-2xs">
                           {isTamil ? 'அடுத்த பகுதி' : `Unit ${unit.unitNumber + 1}`}
                         </span>
                       </div>
