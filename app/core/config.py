@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     API_V1_STR: str = ""
     
+    # Server Port (dynamic for cloud platforms like Render / Railway / Heroku)
+    PORT: int = int(os.environ.get("PORT", 8000))
+
     # Database: Use /tmp on Vercel serverless, local file in dev
     DATABASE_URL: str = "sqlite:////tmp/tamil_buddy.db" if os.environ.get("VERCEL") else "sqlite:///./tamil_buddy.db"
     

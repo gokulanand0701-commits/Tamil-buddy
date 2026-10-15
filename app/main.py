@@ -122,3 +122,12 @@ else:
             "version": settings.VERSION,
             "docs": "/docs"
         }
+
+
+# Dynamic PORT support for Render, Heroku, Cloud Run, etc.
+if __name__ == "__main__":
+    import uvicorn
+    # Use PORT env variable if present, fallback to 8000
+    server_port = int(os.environ.get("PORT", 8000))
+    print(f"Starting server on 0.0.0.0:{server_port} (PORT env var: {os.environ.get('PORT')})")
+    uvicorn.run("app.main:app", host="0.0.0.0", port=server_port, reload=False)
