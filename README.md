@@ -61,6 +61,31 @@
 
 ---
 
+## ⚡ Build & Start Commands (Production & Cloud Deployment)
+
+For deploying this fullstack project as a **single web service** on **Render, Railway, Heroku, or any cloud host**:
+
+| Step | Exact Command |
+|---|---|
+| **Build Command** | `npm install && npm run build && pip install -r requirements.txt` |
+| **Start Command** | `uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
+
+> **How it runs as a unified single service:**
+> 1. The **Build Command** installs all Node packages, compiles the React/TypeScript frontend into `dist/`, and installs all Python dependencies from `requirements.txt`.
+> 2. The **Start Command** launches Uvicorn binding to `0.0.0.0` on the platform's dynamically assigned `$PORT`.
+> 3. FastAPI automatically mounts and serves both the backend API endpoints (`/api/*`, `/auth/*`, `/lessons/*`, etc.) and the compiled React SPA from `dist/` on the same domain and port!
+
+### 💻 Local Development Commands
+
+| Task | Command |
+|---|---|
+| **Unified Local Server (Port 8000)** | `npm run build` then `uvicorn app.main:app --port 8000` |
+| **Frontend Dev Server (Port 5173)** | `npm run dev` |
+| **Backend Dev Server (Port 8000)** | `uvicorn app.main:app --reload --port 8000` |
+| **Run Backend Tests** | `pytest` |
+
+---
+
 ## 📁 Project Structure
 
 ```
