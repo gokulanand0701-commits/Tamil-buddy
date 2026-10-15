@@ -29,6 +29,9 @@ interface AuthState {
   dismissWelcomeBack: () => void;
   useStreakFreeze: () => boolean;
   addCoins: (amount: number) => number;
+  spendCoins: (amount: number) => boolean;
+  buyStreakFreeze: (cost?: number) => { success: boolean; message: string };
+  repairAndResumeStreak: (cost?: number) => { success: boolean; message: string };
 }
 
 export const useAuthStore = create<AuthState>((set, get) => {
@@ -198,6 +201,70 @@ export const useAuthStore = create<AuthState>((set, get) => {
         get().setUser(updated);
       }
       return newCoins;
+    },
+
+    spendCoins: (amount: number) => {
+      const user = get().user;
+      const currentCoins = user?.coins ?? 50;
+      if (currentCoins < amount) return false;
+      const newCoins = currentCoins - amount;
+      if (user) {
+        const updated = { ...user, coins: newCoins };
+        get().setUser(updated);
+      }
+      return true;
+    },
+
+    buyStreakFreeze: (cost = 50) => {
+      const user = get().user;
+      const currentCoins = user?.coins ?? 50;
+      if (currentCoins < cost) {
+        return {
+          success: false,
+          message: `Not enough coins! You need ${cost} coins, but you have ${currentCoins}. Play word games to win more! 🪙`,
+        };
+      }
+      const newFreezes = (user?.streak_freezes_left ?? 0) + 1;
+      const newCoins = currentCoins - cost;
+      if (user) {
+        const updated = {
+          ...user,
+          coins: newCoins,
+          streak_freezes_left: newFreezes,
+        };
+        get().setUser(updated);
+      }
+      return {
+        success: true,
+        message: `Hooray! Streak Freeze purchased! You now have ${newFreezes} freeze(s) ❄️ protecting your streak!`,
+      };
+    },
+
+    repairAndResumeStreak: (cost = 80) => {
+      const user = get().user;
+      const currentCoins = user?.coins ?? 50;
+      if (currentCoins < cost) {
+        return {
+          success: false,
+          message: `Not enough coins! You need ${cost} coins to resume your streak. Earn coins in the word puzzle! 🪙`,
+        };
+      }
+      const newCoins = currentCoins - cost;
+      const restoredStreak = Math.max(user?.streak_current || 1, user?.streak_best || 3, 2);
+      if (user) {
+        const updated = {
+          ...user,
+          coins: newCoins,
+          streak_current: restoredStreak,
+          last_active_date: todayStr,
+        };
+        get().setUser(updated);
+      }
+      set({ missedDaysDetected: false });
+      return {
+        success: true,
+        message: `Streak Restored! 🔥 Your ${restoredStreak}-day streak is actively resumed without losing your progress!`,
+      };
     },
   };
 });

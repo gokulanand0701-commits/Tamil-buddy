@@ -8,7 +8,7 @@ import { ConfettiCelebration } from '../common/ConfettiCelebration';
 
 export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col relative text-slate-800 bg-amber-50/20 selection:bg-amber-300 selection:text-slate-900">
+    <div className="min-h-screen flex flex-col relative text-slate-900 bg-gradient-to-br from-purple-50/70 via-white to-purple-50/50 selection:bg-purple-200 selection:text-purple-900">
       {/* Cozy Kids Element Background with subtle low opacity */}
       <CozyKidsBackground />
 

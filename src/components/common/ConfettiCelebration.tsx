@@ -58,10 +58,10 @@ export const ConfettiCelebration: React.FC = () => {
           initial={{ scale: 0.8, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          className="relative w-full max-w-md bg-white rounded-3xl p-6 md:p-8 text-center shadow-2xl border-4 border-amber-300 overflow-hidden"
+          className="relative w-full max-w-md bg-white rounded-3xl p-6 md:p-8 text-center shadow-2xl border-4 border-purple-300 overflow-hidden"
         >
           {/* Background Rays */}
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-100/60 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-purple-100/70 rounded-full blur-3xl pointer-events-none" />
 
           {/* Kili Mascot Celebrating */}
           <div className="relative mb-3 flex justify-center">
@@ -71,7 +71,7 @@ export const ConfettiCelebration: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">
             அற்புதம்! Fantastic Job! 🎉
           </h2>
-          <p className="text-sm font-semibold text-teal-600 mt-1">
+          <p className="text-sm font-bold text-purple-700 mt-1">
             Lesson Completed: {lesson?.title}
           </p>
 
@@ -92,20 +92,27 @@ export const ConfettiCelebration: React.FC = () => {
             ))}
           </div>
 
-          {/* Rewards Grid */}
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            <div className="bg-amber-50 border-2 border-amber-200/80 rounded-2xl p-3 flex flex-col items-center">
-              <span className="text-amber-500 mb-1 flex items-center gap-1 font-bold text-xs uppercase">
-                <Zap size={16} /> XP Earned
+          {/* Rewards Grid: XP + Coins + Fluency */}
+          <div className="grid grid-cols-3 gap-2.5 mb-5">
+            <div className="bg-purple-50 border-2 border-purple-200/80 rounded-2xl p-2.5 flex flex-col items-center">
+              <span className="text-purple-600 mb-0.5 flex items-center gap-1 font-bold text-[11px] uppercase">
+                <Zap size={14} /> XP
               </span>
-              <span className="text-2xl font-black text-amber-600">+{xpEarned} XP</span>
+              <span className="text-lg font-black text-purple-700">+{xpEarned}</span>
             </div>
 
-            <div className="bg-teal-50 border-2 border-teal-200/80 rounded-2xl p-3 flex flex-col items-center">
-              <span className="text-teal-600 mb-1 flex items-center gap-1 font-bold text-xs uppercase">
-                <Award size={16} /> Fluency
+            <div className="bg-amber-50 border-2 border-amber-200/80 rounded-2xl p-2.5 flex flex-col items-center">
+              <span className="text-amber-600 mb-0.5 flex items-center gap-1 font-bold text-[11px] uppercase">
+                🪙 Coins
               </span>
-              <span className="text-2xl font-black text-teal-700">Level Up!</span>
+              <span className="text-lg font-black text-amber-700">+15</span>
+            </div>
+
+            <div className="bg-indigo-50 border-2 border-indigo-200/80 rounded-2xl p-2.5 flex flex-col items-center">
+              <span className="text-indigo-600 mb-0.5 flex items-center gap-1 font-bold text-[11px] uppercase">
+                <Award size={14} /> Mastery
+              </span>
+              <span className="text-lg font-black text-indigo-700">Level Up!</span>
             </div>
           </div>
 
@@ -116,14 +123,14 @@ export const ConfettiCelebration: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               className="bg-purple-100 border-2 border-purple-300 text-purple-900 rounded-2xl p-3 mb-4 text-xs font-bold"
             >
-              🚀 LEVEL UP! You reached Level! Keep rockin' Tamil!
+              🚀 LEVEL UP! You reached a new milestone! Keep rockin' Tamil!
             </motion.div>
           )}
 
           {/* New Badges */}
           {newBadges && newBadges.length > 0 && (
-            <div className="bg-coral-50 border-2 border-coral-200 rounded-2xl p-3 mb-4">
-              <span className="text-xs font-bold text-coral-600 block mb-1">🏅 NEW BADGE UNLOCKED!</span>
+            <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-3 mb-4">
+              <span className="text-xs font-bold text-purple-600 block mb-1">🏅 NEW BADGE UNLOCKED!</span>
               <div className="flex items-center justify-center gap-2">
                 <span className="text-2xl">{newBadges[0].icon}</span>
                 <span className="font-extrabold text-sm text-slate-800">{newBadges[0].title}</span>
@@ -131,16 +138,16 @@ export const ConfettiCelebration: React.FC = () => {
             </div>
           )}
 
-          {/* Continue Button */}
-          <Button
-            variant="primary"
-            size="lg"
-            fullWidth
-            onClick={handleContinue}
-            icon={<ArrowRight size={20} />}
-          >
-            Continue Adventure!
-          </Button>
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-2 mt-2">
+            <button
+              onClick={handleContinue}
+              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md transition-all active:scale-95 text-base"
+            >
+              <span>Continue Adventure!</span>
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>

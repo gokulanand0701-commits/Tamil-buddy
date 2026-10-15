@@ -6,6 +6,8 @@ import { useSettingsStore } from '../../store/useSettingsStore';
 import { useTranslation } from '../../hooks/useTranslation';
 import { ProfileModal } from '../common/ProfileModal';
 import { StreakModal } from '../common/StreakModal';
+import { CoinShopModal } from '../common/CoinShopModal';
+import { PersonalizedReviewModal } from '../common/PersonalizedReviewModal';
 import { soundService } from '../../services/soundService';
 
 const AVATAR_EMOJIS: Record<string, string> = {
@@ -24,6 +26,8 @@ export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isStreakOpen, setIsStreakOpen] = useState(false);
+  const [isShopOpen, setIsShopOpen] = useState(false);
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
 
   const streak = user?.streak_current || 1;
   const xp = user?.xp || 0;
@@ -94,15 +98,36 @@ export const Navbar: React.FC = () => {
               </span>
             </Link>
 
-            {/* Coins Badge */}
-            <Link
-              to="/chat"
-              title="Animal Word Game & Free Coins"
-              className="flex items-center gap-1 bg-amber-50 hover:bg-amber-100 border-2 border-amber-300 text-amber-900 px-2.5 py-1 rounded-2xl text-xs sm:text-sm font-black shadow-sm transition-all"
+            {/* Coins & Shop Button */}
+            <button
+              type="button"
+              onClick={() => {
+                soundService.playClick();
+                setIsShopOpen(true);
+              }}
+              title="Tamil Buddy Treasury & Shop (Use coins to buy streak freezes & resume streaks!)"
+              className="flex items-center gap-1.5 bg-gradient-to-r from-purple-50 to-amber-50 hover:from-purple-100 hover:to-amber-100 border-2 border-purple-300 text-purple-950 px-2.5 sm:px-3 py-1 rounded-2xl text-xs sm:text-sm font-black shadow-sm transition-all cursor-pointer active:scale-95"
             >
-              <span>🪙</span>
+              <span className="text-base">🪙</span>
               <span>{user?.coins ?? 50}</span>
-            </Link>
+              <span className="hidden sm:inline text-[10px] bg-purple-700 text-white px-1.5 py-0.5 rounded-md font-bold">
+                {isTamil ? 'கடை 🏪' : 'Shop 🏪'}
+              </span>
+            </button>
+
+            {/* Smart Mistake Review Button */}
+            <button
+              type="button"
+              onClick={() => {
+                soundService.playClick();
+                setIsReviewOpen(true);
+              }}
+              title="Personalized Smart Review (SM-2 Queued Mistakes)"
+              className="flex items-center gap-1 bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 text-purple-900 px-2.5 py-1 rounded-2xl text-xs sm:text-sm font-black shadow-sm transition-all cursor-pointer active:scale-95"
+            >
+              <span>🎯</span>
+              <span className="hidden lg:inline">{isTamil ? 'மறுபயிற்சி' : 'Review'}</span>
+            </button>
 
             {/* Language Toggle (English <-> Tamil) */}
             <button
@@ -179,6 +204,18 @@ export const Navbar: React.FC = () => {
       <StreakModal
         isOpen={isStreakOpen}
         onClose={() => setIsStreakOpen(false)}
+      />
+
+      {/* Coins & Power-Ups Shop Modal */}
+      <CoinShopModal
+        isOpen={isShopOpen}
+        onClose={() => setIsShopOpen(false)}
+      />
+
+      {/* Personalized Smart Review Modal (SM-2 Queued Mistakes) */}
+      <PersonalizedReviewModal
+        isOpen={isReviewOpen}
+        onClose={() => setIsReviewOpen(false)}
       />
     </>
   );

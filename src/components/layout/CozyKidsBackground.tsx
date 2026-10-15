@@ -3,11 +3,11 @@ import React from 'react';
 export const CozyKidsBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none" aria-hidden="true">
-      {/* 1. Soft Ambient Pastel Glows */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 left-1/4 w-96 h-96 bg-rose-200/30 rounded-full blur-3xl" />
-      <div className="absolute top-2/3 right-1/4 w-80 h-80 bg-sky-200/30 rounded-full blur-3xl" />
+      {/* 1. Soft Ambient Pastel Glows in Cozy Purple & Violet */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 -right-32 w-96 h-96 bg-indigo-200/35 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 left-1/4 w-96 h-96 bg-fuchsia-200/25 rounded-full blur-3xl" />
+      <div className="absolute top-2/3 right-1/4 w-80 h-80 bg-violet-200/30 rounded-full blur-3xl" />
 
       {/* 2. Cozy Kid-Friendly Doodle Elements with very soft opacity (5-7%) */}
       <div className="absolute inset-0 opacity-[0.06] flex flex-col justify-between p-6 sm:p-12 text-slate-800">
