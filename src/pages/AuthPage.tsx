@@ -235,6 +235,21 @@ export const AuthPage: React.FC = () => {
         {/* RIGHT COLUMN: EXPANSIVE AUTH FORM */}
         <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-center bg-white">
           
+          {/* Back to Home Button */}
+          <div className="mb-4">
+            <button
+              type="button"
+              onClick={() => {
+                soundService.playClick();
+                navigate('/');
+              }}
+              className="inline-flex items-center gap-1.5 text-xs font-black text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-full border border-purple-200 transition-all cursor-pointer"
+            >
+              <span>←</span>
+              <span>முகப்புக்கு திரும்பு (Back to Home)</span>
+            </button>
+          </div>
+
           {/* Header Title */}
           <div className="mb-6">
             <h2 className="text-2xl sm:text-3xl font-black text-purple-950 tracking-tight">

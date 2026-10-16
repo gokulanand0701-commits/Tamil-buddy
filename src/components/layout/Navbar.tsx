@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Flame, Volume2, VolumeX, Shield, Zap, Sparkles, User as UserIcon } from 'lucide-react';
+import { Flame, Volume2, VolumeX, Shield, Zap, Sparkles, User as UserIcon, LogIn } from 'lucide-react';
 import { useAuthStore } from '../../store/useAuthStore';
 import { useSettingsStore } from '../../store/useSettingsStore';
 import { useTranslation } from '../../hooks/useTranslation';
@@ -20,7 +20,7 @@ const AVATAR_EMOJIS: Record<string, string> = {
 };
 
 export const Navbar: React.FC = () => {
-  const { user, logout } = useAuthStore();
+  const { user, logout, isAuthenticated } = useAuthStore();
   const { isMuted, toggleMuted } = useSettingsStore();
   const { t, language, toggleLanguage, isTamil } = useTranslation();
   const navigate = useNavigate();
@@ -175,21 +175,36 @@ export const Navbar: React.FC = () => {
               <span className="hidden md:inline">{t('parentsZone')}</span>
             </button>
 
-            {/* Profile Avatar & Settings Button (Replaced Exit from top) */}
-            <button
-              type="button"
-              onClick={() => {
-                soundService.playClick();
-                setIsProfileOpen(true);
-              }}
-              title={t('profileSettings')}
-              className="flex items-center gap-1.5 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl text-xs font-black transition-all shadow-sm active:scale-95 cursor-pointer border border-teal-400"
-            >
-              <span className="text-base">{avatarEmoji}</span>
-              <span className="max-w-[70px] sm:max-w-[90px] truncate hidden xs:inline">
-                {user?.name || t('profile')}
-              </span>
-            </button>
+            {/* Profile Avatar (if authenticated) or Login / Register Button */}
+            {isAuthenticated ? (
+              <button
+                type="button"
+                onClick={() => {
+                  soundService.playClick();
+                  setIsProfileOpen(true);
+                }}
+                title={t('profileSettings')}
+                className="flex items-center gap-1.5 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl text-xs font-black transition-all shadow-sm active:scale-95 cursor-pointer border border-teal-400"
+              >
+                <span className="text-base">{avatarEmoji}</span>
+                <span className="max-w-[70px] sm:max-w-[90px] truncate hidden xs:inline">
+                  {user?.name || t('profile')}
+                </span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  soundService.playClick();
+                  navigate('/auth');
+                }}
+                title={t('navLogin')}
+                className="flex items-center gap-1.5 bg-gradient-to-r from-purple-700 to-indigo-800 hover:from-purple-800 hover:to-indigo-900 text-white px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-2xl text-xs font-black transition-all shadow-sm active:scale-95 cursor-pointer border border-purple-400/50"
+              >
+                <LogIn size={15} />
+                <span className="hidden xs:inline">{t('navLogin')}</span>
+              </button>
+            )}
           </div>
         </div>
       </header>

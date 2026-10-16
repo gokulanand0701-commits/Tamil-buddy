@@ -34,22 +34,42 @@ interface AuthState {
   repairAndResumeStreak: (cost?: number) => { success: boolean; message: string };
 }
 
+const GUEST_USER: User = {
+  id: 0,
+  name: 'தோழர்',
+  email: '',
+  role: 'child',
+  level: 1,
+  xp: 0,
+  coins: 50,
+  avatar: 'kili',
+  streak_current: 1,
+  streak_best: 1,
+  streak_freezes_left: 1,
+  daily_goal_minutes: 15,
+};
+
 export const useAuthStore = create<AuthState>((set, get) => {
-  // When opening the website fresh, display the Login/Register page first.
-  // We check for an active session flag in sessionStorage.
-  const isSessionActive = sessionStorage.getItem('tamil_buddy_session_active') === 'true';
   const savedUserStr = localStorage.getItem('tamil_buddy_user');
   let initialUser: User | null = null;
   let isAuthenticated = false;
 
-  if (isSessionActive && savedUserStr) {
+  if (savedUserStr) {
     try {
-      initialUser = JSON.parse(savedUserStr);
-      isAuthenticated = !!initialUser && !!initialUser.email;
+      const parsed = JSON.parse(savedUserStr);
+      if (parsed && parsed.email) {
+        initialUser = parsed;
+        isAuthenticated = true;
+      }
     } catch {
       initialUser = null;
       isAuthenticated = false;
     }
+  }
+
+  if (!initialUser) {
+    initialUser = GUEST_USER;
+    isAuthenticated = false;
   }
 
   // Check missed days if user is authenticated
@@ -145,7 +165,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
       localStorage.removeItem('tamil_buddy_user');
       localStorage.removeItem('tamil_buddy_token');
       set({
-        user: null,
+        user: GUEST_USER,
         isAuthenticated: false,
         isOnboarded: false,
         isParentUnlocked: false,

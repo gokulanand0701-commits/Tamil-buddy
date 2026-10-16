@@ -14,53 +14,29 @@ import { useAuthStore } from './store/useAuthStore';
 import { ConfettiCelebration } from './components/common/ConfettiCelebration';
 import { ToastContainer } from './components/common/Toast';
 
-// Protected Route Guard: Blocks unauthenticated users from entering the dashboard!
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated } = useAuthStore();
-
-  if (!isAuthenticated) {
-    return <Navigate to="/auth" replace />;
-  }
-
-  return <>{children}</>;
-};
-
 export const App: React.FC = () => {
-  const { isAuthenticated } = useAuthStore();
-
   return (
     <BrowserRouter>
       <Routes>
         {/* Authentication: Responsive Login & Register Screen */}
-        <Route
-          path="/auth"
-          element={!isAuthenticated ? <AuthPage /> : <Navigate to="/" replace />}
-        />
+        <Route path="/auth" element={<AuthPage />} />
         <Route path="/login" element={<Navigate to="/auth" replace />} />
         <Route path="/register" element={<Navigate to="/auth" replace />} />
 
-        {/* Dedicated Focused View for Lesson Player (Protected) */}
+        {/* Dedicated Focused View for Lesson Player */}
         <Route
           path="/lesson/:id"
           element={
-            <ProtectedRoute>
-              <div className="min-h-screen bg-amber-50/40 p-4 md:p-6 flex flex-col justify-between">
-                <LessonPlayer />
-                <ConfettiCelebration />
-                <ToastContainer />
-              </div>
-            </ProtectedRoute>
+            <div className="min-h-screen bg-amber-50/40 p-4 md:p-6 flex flex-col justify-between">
+              <LessonPlayer />
+              <ConfettiCelebration />
+              <ToastContainer />
+            </div>
           }
         />
 
-        {/* Standard App Layout with Navbar & Bottom Nav (All Protected) */}
-        <Route
-          element={
-            <ProtectedRoute>
-              <Layout />
-            </ProtectedRoute>
-          }
-        >
+        {/* Standard App Layout with Navbar & Bottom Nav - Opens directly on Home page */}
+        <Route element={<Layout />}>
           <Route path="/" element={<HomeDashboard />} />
           <Route path="/learn" element={<LearningPath />} />
           <Route path="/chat" element={<AIConversation />} />
@@ -70,11 +46,8 @@ export const App: React.FC = () => {
           <Route path="/rewards" element={<Rewards />} />
         </Route>
 
-        {/* Fallback */}
-        <Route
-          path="*"
-          element={<Navigate to={isAuthenticated ? '/' : '/auth'} replace />}
-        />
+        {/* Fallback to Home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

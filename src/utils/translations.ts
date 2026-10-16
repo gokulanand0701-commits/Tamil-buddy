@@ -27,6 +27,7 @@ export const translations = {
     navReport: 'Report',
     navRewards: 'Rewards',
     navExit: 'Exit',
+    navLogin: 'Login / Register',
 
     // Home Dashboard
     greeting: 'Vanakkam',
@@ -152,6 +153,7 @@ export const translations = {
     navReport: 'அறிக்கை',
     navRewards: 'விருதுகள்',
     navExit: 'வெளியேறு',
+    navLogin: 'உள்நுழை / பதிவு',
 
     // Home Dashboard
     greeting: 'வணக்கம்',
